@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+  frontend:
+    tty: true
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    environment:
+      - API_URL=http://backend:9292
+    expose:
+      - 4321
+    ports:
+      - 4321:4321
+    depends_on:
+      - db
+      - backend
+
+  backend:
+    image: ghcr.io/simonneutert/ka-ching-backend:main
+    environment:
+      - DATABASE_URL=db
+      - DATABASE_USER=kaching
+      - DATABASE_PASSWORD=kaching
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: kaching
+      POSTGRES_PASSWORD: kaching
+      LC_ALL: C.UTF-8
+      LANG: en_US.UTF-8
+

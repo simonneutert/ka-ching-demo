@@ -1,0 +1,41 @@
+<% if @bookings.empty? %>
+  <div class="my-6">
+    <h2 class="title is-h2">No open Bookings for this period</h2>
+  </div>
+<% else %>
+  <div class="my-6">
+    <h2 class="title is-h2">Current open Bookings</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>action</td>
+          <th>amount cents</td>
+          <th>realized</td>
+          <th>context</td>
+        </tr>
+      </thead>
+      <% unless @bookings.empty? %>
+        <tfoot>
+          <tr>
+            <th>action</td>
+            <th>amount cents</td>
+            <th>realized</td>
+            <th>context</td>
+          </tr>
+        </tfoot>
+      <% end %>
+      <tbody>
+        <% @bookings.each do |booking| %>
+          <tr>
+            <td><%= booking['action'] %></td>
+            <td><%= booking['amount_cents'] %></td>
+            <td><%= booking['realized_at'] %></td>
+            <td>
+              <%= booking['context'] %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

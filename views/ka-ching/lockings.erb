@@ -1,0 +1,41 @@
+<div class="my-6">
+  <h2 class="title is-h2">Lockings</h2>
+  <hr>
+  <% @lockings.each do |locking| %>
+    <h4 class="subtitle is-h6"><%= locking['realized_at'].strftime('%d-%m-%Y') %></h4>
+    <p>Amount Cents counted: <%= locking['amount_cents_saldo_user_counted'] %></p>
+    <h4>Bookings:</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>action</td>
+          <th>amount cents</td>
+          <th>realized</td>
+          <th>context</td>
+        </tr>
+      </thead>
+      <% unless locking['bookings'].empty? %>
+        <tfoot>
+          <tr>
+            <th>action</td>
+            <th>amount cents</td>
+            <th>realized</td>
+            <th>context</td>
+          </tr>
+        </tfoot>
+      <% end %>
+      <tbody>
+        <% locking['bookings'].each do |booking| %>
+          <tr>
+            <td><%= booking['action'] %></td>
+            <td><%= booking['amount_cents'] %></td>
+            <td><%= booking['realized_at'] %></td>
+            <td>
+              <%= booking['context'] %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

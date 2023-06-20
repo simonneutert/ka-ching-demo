@@ -1,0 +1,11 @@
+{
+  "editor.formatOnSave": true,
+  "ruby.rubocop.useBundler": false,
+  "ruby.rubocop.useServer": false,
+  "ruby.intellisense": "rubyLocate",
+  "ruby.useBundler": true,
+  "ruby.rubocop.onSave": false,
+  "solargraph.formatting": true,
+  "solargraph.useBundler": false,
+  "ruby.useLanguageServer": true
+}
