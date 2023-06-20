@@ -4,12 +4,10 @@ This repository has the purpose to demonstrate what can be easily achieved with 
 
 ---
 
-- [Todo](#todo)
-  - [Later todos](#later-todos)
+- [Todos](#todos)
 - [Local development environment (with Docker)](#local-development-environment-with-docker)
-  - [IMPORTANT If it is your first time running the application](#important-if-it-is-your-first-time-running-the-application)
 
-## Todo
+## Todos
 
 - [ ] Support unlocking Locks
 - [ ] Provide a way to navigate through the AuditLogs
@@ -19,7 +17,7 @@ This repository has the purpose to demonstrate what can be easily achieved with 
 - [ ] Reset the database for a tenant
 - [ ] Show notifications/toasts on errors
 
-### Later todos
+### Later todos<!-- omit in toc -->
 
 - [ ] Support true multi tenant in the demo
 - [ ] Reset everything every 30min
@@ -32,7 +30,7 @@ This repository has the purpose to demonstrate what can be easily achieved with 
 4. `ka-ching-backend` is now running on `localhost:4567`
 5. Want to use `binding.pry`? Then: `docker attach ka-ching-demo-frontend-1` in another terminal window 😎
 
-### IMPORTANT If it is your first time running the application
+### IMPORTANT If it is your first time running the application<!-- omit in toc -->
 
 **You will need to initialize the database.**  
 To do so, run `docker-compose run --rm backend bin/setup` in another terminal window.  
