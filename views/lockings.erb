@@ -1,0 +1,65 @@
+<section class="section">
+  <div class="container">
+    <h1 class="title">
+      ka-ching demo 🤑
+    </h1>
+    <p class="subtitle">
+      a tiny little example app - with docker-compose!
+    </p>
+  </div>
+</section>
+<section>
+  <div class="container my-4">
+    <% unless @lockings.any? %>
+      <h2 class="title is-h2">No Lockings, yet</h2>
+    <% else %>
+      <div class="my-6">
+        <h2 class="title is-h2">Lockings</h2>
+        <hr>
+        <% @lockings.each do |locking| %>
+          <h4 class="subtitle is-h6"><%= locking['realized_at'].strftime('%d.%m.%Y') %>
+            <% if locking['active'] %>
+              <span class="button" hx-delete="/lock">Unlock</span>
+            <% else %>
+              <span>inactive</span>
+            <% end %>
+          </h4>
+          <p>Amount Cents counted: <%= locking['amount_cents_saldo_user_counted'] %></p>
+          <h4>Bookings:</h4>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>action</td>
+                <th>amount cents</td>
+                <th>realized</td>
+                <th>context</td>
+              </tr>
+            </thead>
+            <% unless locking['bookings'].empty? %>
+              <tfoot>
+                <tr>
+                  <th>action</td>
+                  <th>amount cents</td>
+                  <th>realized</td>
+                  <th>context</td>
+                </tr>
+              </tfoot>
+            <% end %>
+            <tbody>
+              <% locking['bookings'].each do |booking| %>
+                <tr>
+                  <td><%= booking['action'] %></td>
+                  <td><%= booking['amount_cents'] %></td>
+                  <td><%= booking['realized_at'].strftime('%d.%m.%Y') %></td>
+                  <td>
+                    <%= booking['context'] %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</section>

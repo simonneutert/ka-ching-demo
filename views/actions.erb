@@ -1,0 +1,30 @@
+<section>
+  <div class="container my-4">
+    <div id="saldo" hx-trigger="load" hx-get="/saldo"></div>
+  </div>
+</section>
+<section class="py-6">
+  <div class="container">
+    <p><strong>Actions:</strong></p>
+    <div class="field is-grouped">
+      <p class="control">
+        <button class="button is-link" hx-get="/deposit" hx-target="#cashing">
+          Book Deposit
+        </button>
+      </p>
+      <p class="control">
+        <button class="button is-primary" hx-get="/withdraw" hx-target="#cashing">
+          Book Withdrawal
+        </button>
+      </p>
+      <p class="control">
+        <button class="button is-danger" hx-get="/lock" hx-target="#cashing">
+          Lock
+        </button>
+      </p>
+    </div>
+    <hr />
+    <div id="cashing"></div>
+    <div id="bookings" hx-trigger="load" hx-get="/bookings"></div>
+  </div>
+</section>

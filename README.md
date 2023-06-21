@@ -9,6 +9,7 @@ This repository has the purpose to demonstrate what can be easily achieved with 
 
 ## Todos
 
+- [ ] Prohibit double clicks!!!
 - [ ] Support unlocking Locks
 - [ ] Provide a way to navigate through the AuditLogs
 - [ ] Detail view of a single AuditLog

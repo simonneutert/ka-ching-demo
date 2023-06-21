@@ -29,7 +29,7 @@
           <tr>
             <td><%= booking['action'] %></td>
             <td><%= booking['amount_cents'] %></td>
-            <td><%= booking['realized_at'] %></td>
+            <td><%= booking['realized_at'].strftime('%d.%m.%Y') %></td>
             <td>
               <%= booking['context'] %>
             </td>

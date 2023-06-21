@@ -1,0 +1,59 @@
+<section class="section">
+  <div class="container">
+    <h1 class="title">
+      ka-ching demo 🤑
+    </h1>
+    <p class="subtitle">
+      a tiny little example app - with docker-compose!
+    </p>
+  </div>
+</section>
+<section>
+  <div class="container my-4">
+    <% unless @auditlogs.any? %>
+      <h2 class="title is-h2">No AuditLogs, yet</h2>
+    <% else %>
+      <div class="my-6">
+        <h2 class="title is-h2">AuditLogs</h2>
+        <hr>
+        <% @auditlogs.each do |audit_log| %>
+          <h4 class="subtitle is-h6"><%= audit_log['realized_at'].strftime('%d-%m-%Y') %>
+          </h4>
+          <h4>Bookings:</h4>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>action</td>
+                <th>amount cents</td>
+                <th>realized</td>
+                <th>context</td>
+              </tr>
+            </thead>
+            <% unless audit_log['bookings'].empty? %>
+              <tfoot>
+                <tr>
+                  <th>action</td>
+                  <th>amount cents</td>
+                  <th>realized</td>
+                  <th>context</td>
+                </tr>
+              </tfoot>
+            <% end %>
+            <tbody>
+              <% audit_log['bookings'].each do |booking| %>
+                <tr>
+                  <td><%= booking['action'] %></td>
+                  <td><%= booking['amount_cents'] %></td>
+                  <td><%= booking['realized_at'].strftime('%d.%m.%Y') %></td>
+                  <td>
+                    <%= booking['context'] %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</section>

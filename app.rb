@@ -10,6 +10,7 @@ class App < Roda
   plugin :render
   plugin :assets, css: 'style.css', js: 'script.js'
   plugin :public, root: 'public'
+  plugin :all_verbs
 
   client = KaChing::ApiClient.new(api_version: :v1, base_url: BACKEND_API_URL)
                              .build_client!
@@ -28,6 +29,10 @@ class App < Roda
       view 'index'
     end
 
+    r.on 'actions' do
+      view 'actions'
+    end
+
     r.on 'bookings' do
       r.on :id do |id|
         id
@@ -42,8 +47,8 @@ class App < Roda
           booking
         end
 
-        render 'ka-ching/bookings'
-      end   
+        render 'bookings'
+      end
     end
 
     r.on 'lock' do
@@ -57,6 +62,18 @@ class App < Roda
           context: { content: r.params['context'] }
         )
         render 'ka-ching/lock'
+      end
+
+      r.delete do
+        res = client.v1.lockings.unlock!(
+          tenant_account_id: 'testuser_1'
+        )
+        binding.pry
+        content = <<~HTML
+          <div hx-get="/saldo" hx-target="#saldo" hx-trigger="load delay:1ms"></div>
+          <div hx-get="/bookings" hx-target="#bookings" hx-trigger="load delay:1ms"></div>
+        HTML
+        content
       end
 
       r.is do
@@ -78,7 +95,7 @@ class App < Roda
           end
           locking
         end
-        render 'ka-ching/lockings'
+        view 'lockings'
       end
 
       r.on :id do |id|
@@ -125,6 +142,24 @@ class App < Roda
     r.on 'saldo' do
       res = client.v1.saldo.current(tenant_account_id: 'testuser_1')
       render 'ka-ching/saldo', locals: { saldo: res['saldo'] }
+    end
+
+    r.on 'auditlogs' do
+      year = r.params.fetch('year', Time.now.year).to_i
+      page = r.params.fetch('page', 1).to_i
+      per_page = r.params.fetch('per_page', 10).to_i
+      @auditlogs = client.v1.audit_logs.of_year(tenant_account_id: 'testuser_1', year: year)
+      @auditlogs.map! do |auditlog|
+        auditlog['realized_at'] = Time.parse(auditlog['environment_snapshot']['realized_at'])
+        auditlog['locking_id'] = auditlog['environment_snapshot']['id']
+        auditlog['bookings'] = JSON.parse(auditlog['environment_snapshot']['bookings_json']).map do |booking|
+          booking['context'] = JSON.parse(booking['context'])['content']
+          booking['realized_at'] = Time.parse(booking['realized_at'])
+          booking
+        end
+        auditlog
+       end
+      view 'auditlogs'
     end
   end
 end
