@@ -48,6 +48,9 @@ This repository has the purpose to demonstrate what can be easily achieved with 
 - [x] Unlock last lock of the cash register 🎉
 - [x] Show AuditLogs of current year
 - [x] Prohibit double clicks / double submission (htmx throttle ftw)
+- [x] Show notifications/toasts on errors
+  - [x] withdraw
+  - [x] deposit
 
 ## Todos
 
@@ -57,6 +60,8 @@ This repository has the purpose to demonstrate what can be easily achieved with 
 - [ ] Detail view of a single Lock
 - [ ] Detail view of a single Booking
 - [ ] Show notifications/toasts on errors
+  - [ ] locking
+  - [ ] deletion of a booking
 
 <details>
   <summary>Roadmap / Planned</summary>
