@@ -68,7 +68,6 @@ class App < Roda
         res = client.v1.lockings.unlock!(
           tenant_account_id: 'testuser_1'
         )
-        binding.pry
         content = <<~HTML
           <div hx-get="/saldo" hx-target="#saldo" hx-trigger="load delay:1ms"></div>
           <div hx-get="/bookings" hx-target="#bookings" hx-trigger="load delay:1ms"></div>
