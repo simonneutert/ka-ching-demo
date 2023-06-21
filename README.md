@@ -47,10 +47,10 @@ This repository has the purpose to demonstrate what can be easily achieved with 
 - [x] Lock the cash register
 - [x] Unlock last lock of the cash register 🎉
 - [x] Show AuditLogs of current year
+- [x] Prohibit double clicks / double submission (htmx throttle ftw)
 
 ## Todos
 
-- [ ] Prohibit double clicks!!!
 - [ ] Provide a way to navigate through the AuditLogs
 - [ ] Detail view of a single AuditLog
 - [ ] Detail view of a single Lock
