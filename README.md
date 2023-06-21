@@ -51,6 +51,7 @@ This repository has the purpose to demonstrate what can be easily achieved with 
 
 ## Todos
 
+- [ ] Delete a Booking in the current register
 - [ ] Provide a way to navigate through the AuditLogs
 - [ ] Detail view of a single AuditLog
 - [ ] Detail view of a single Lock
