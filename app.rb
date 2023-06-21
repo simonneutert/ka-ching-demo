@@ -105,14 +105,19 @@ class App < Roda
 
     r.on 'deposit' do
       r.post do
-        res = client.v1.bookings.deposit!(
-          tenant_account_id: 'testuser_1',
-          amount_cents: r.params['amount_cents'].to_i,
-          year: r.params['year'].to_i,
-          month: r.params['month'].to_i,
-          day: r.params['day'].to_i,
-          context: { content: r.params['context'] }
-        )
+        begin
+          res = client.v1.bookings.deposit!(
+            tenant_account_id: 'testuser_1',
+            amount_cents: r.params['amount_cents'].to_i,
+            year: r.params['year'].to_i,
+            month: r.params['month'].to_i,
+            day: r.params['day'].to_i,
+            context: { content: r.params['context'] }
+          )
+        rescue StandardError => e
+          puts e
+          @error = JSON.parse(e.response[:body])['message']
+        end
         render 'ka-ching/deposit'
       end
 
@@ -123,14 +128,19 @@ class App < Roda
 
     r.on 'withdraw' do
       r.post do
-        res = client.v1.bookings.withdraw!(
-          tenant_account_id: 'testuser_1',
-          amount_cents: r.params['amount_cents'].to_i,
-          year: r.params['year'].to_i,
-          month: r.params['month'].to_i,
-          day: r.params['day'].to_i,
-          context: { content: r.params['context'] }
-        )
+        begin
+          res = client.v1.bookings.withdraw!(
+            tenant_account_id: 'testuser_1',
+            amount_cents: r.params['amount_cents'].to_i,
+            year: r.params['year'].to_i,
+            month: r.params['month'].to_i,
+            day: r.params['day'].to_i,
+            context: { content: r.params['context'] }
+          )
+        rescue StandardError => e
+          puts e
+          @error = JSON.parse(e.response[:body])['message']
+        end
         render 'ka-ching/withdraw'
       end
 
@@ -148,7 +158,7 @@ class App < Roda
       year = r.params.fetch('year', Time.now.year).to_i
       page = r.params.fetch('page', 1).to_i
       per_page = r.params.fetch('per_page', 10).to_i
-      @auditlogs = client.v1.audit_logs.of_year(tenant_account_id: 'testuser_1', year: year)
+      @auditlogs = client.v1.audit_logs.of_year(tenant_account_id: 'testuser_1', year:)
       @auditlogs.map! do |auditlog|
         auditlog['realized_at'] = Time.parse(auditlog['environment_snapshot']['realized_at'])
         auditlog['locking_id'] = auditlog['environment_snapshot']['id']
@@ -158,7 +168,7 @@ class App < Roda
           booking
         end
         auditlog
-       end
+      end
       view 'auditlogs'
     end
   end
