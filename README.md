@@ -8,6 +8,7 @@ This repository has the purpose to demonstrate what can be easily achieved with 
 - [Features](#features)
 - [Todos](#todos)
 - [Local development environment (with Docker)](#local-development-environment-with-docker)
+  - [Reset the database](#reset-the-database)
 
 ## Screenshots
 
@@ -84,6 +85,11 @@ This repository has the purpose to demonstrate what can be easily achieved with 
 3. Run `docker-compose up --build` in the root directory of this repository
 4. `ka-ching-backend` is now running on `localhost:4567`
 5. Want to use `binding.pry`? Then: `docker attach ka-ching-demo-frontend-1` in another terminal window 😎
+
+### Reset the database
+
+Stop your containers `ctrl + c` and run `docker-compose down` in the root directory of this repository.  
+Then run `docker-compose up --build` again. And follow the steps below once more 😉
 
 ### IMPORTANT If it is your first time running the application<!-- omit in toc -->
 
