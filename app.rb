@@ -46,6 +46,7 @@ class App < Roda
           booking['realized_at'] = Time.parse(booking['realized_at'])
           booking
         end
+        @bookings.sort_by! { |booking| booking['realized_at'] }
 
         render 'bookings'
       end
