@@ -1,7 +1,7 @@
 <h2 class="title is-h2">Deposit</h2>
 <div class="columns is-desktop">
   <div class="column">
-    <form hx-post="/deposit">
+    <form hx-post="/deposit" hx-trigger="submit throttle:200ms">
       <div class="field is-horizontal">
         <div class="field-label is-normal">
           <label class="label">Amount in cents</label>
