@@ -6,6 +6,7 @@ This repository has the purpose to demonstrate what can be easily achieved with 
 
 - [Todos](#todos)
 - [Local development environment (with Docker)](#local-development-environment-with-docker)
+- [Screenshots](#screenshots)
 
 ## Todos
 
@@ -37,3 +38,27 @@ This repository has the purpose to demonstrate what can be easily achieved with 
 To do so, run `docker-compose run --rm backend bin/setup` in another terminal window.  
 This will create the database and populate it with some sample data.
 THEN stop your containers `ctrl + c` to fire everything up, for good `docker-compose up`.
+
+## Screenshots
+
+![Screenshot of the demo application - landing page](./public/screenshots/1.jpeg)
+
+> ☝️ The landing page of the demo application.
+
+---
+
+![Screenshot of the demo application - actions page](./public/screenshots/2.jpeg)
+
+> ☝️ The `/actions` page of the demo application, where your current (non locked) cash register bookings are displayed. This is where you deposit, withdraw and lock your cash register.
+
+---
+
+![Screenshot of the demo application - lockings overview page](./public/screenshots/3.jpeg)
+
+> ☝️ The `/lockings` page of the demo application, where you can see all the locks that are currently active. You can also unlock them from here.
+
+---
+
+![Screenshot of the demo application - audit logs overview page](./public/screenshots/4.jpeg)
+
+> ☝️ The `/audit_logs` page of the demo application, where you can see all the audit logs that have been created. You can also filter them by tenant and by action type.
