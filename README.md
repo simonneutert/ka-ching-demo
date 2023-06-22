@@ -35,7 +35,7 @@ This repository has the purpose to demonstrate what can be easily achieved with 
 
 ![Screenshot of the demo application - audit logs overview page](./public/screenshots/4.jpeg)
 
-> ☝️ The `/audit_logs` page of the demo application, where you can see all the audit logs that have been created. You can also filter them by tenant and by action type.
+> ☝️ The `/auditlogs` page of the demo application, where you can see all the audit logs that have been created. You can also filter them by tenant and by action type.
 
 </details>
 
