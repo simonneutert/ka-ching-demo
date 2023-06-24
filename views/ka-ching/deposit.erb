@@ -1,5 +1,12 @@
 <% if @error%>
-  <%= @error %>
+  <div class="columns">
+    <div class="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop">
+      <div class="notification is-danger">
+        <button class="delete" onclick="document.getElementById('cashing').innerHTML=''"></button>
+        <%= @error %>
+      </div>
+    </div>
+  </div>
 <% else %>
   <h2 class="title is-h2">Deposit</h2>
   <div class="columns is-desktop">
