@@ -7,7 +7,8 @@
       a tiny little example app - with docker-compose!
     </p>
     <hr>
-    <p>You can reset everythin by running: <code>$ bin/reset</code></p>
+    <p>You can reset everythin by running: <code>$ bin/reset</code>.</p>
+    <p>And then start the app with: <code>$ bin/dev</code> again.</p>
   </section>
   <section class="section">
     <hr>
@@ -38,8 +39,15 @@
   </section>
   <section class="section">
     <hr>
-    <div class="container">
-      <section>
+    <h4 class="title is-4">Select Tenant</h4>
+    <% if @tenants.empty? %>
+      <div class="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop">
+        <div class="notification is-info">
+          Create a tenant first 🤓
+        </div>
+      </div>
+    <% else %>
+      <div class="container">
         <div class="select">
           <select id="select-tenant" hx-on="change: window.location.href = (document.getElementById('select-tenant').options[document.getElementById('select-tenant').selectedIndex].value) + '/actions'">
             <option value="" disabled selected hidden>Choose a tenant</option>
@@ -48,7 +56,7 @@
             <% end %>
           </select>
         </div>
-      </section>
-    </div>
+      </div>
+    <% end %>
   </section>
 </div>

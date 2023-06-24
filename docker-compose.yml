@@ -11,6 +11,7 @@ services:
       - .:/app
     environment:
       - API_URL=http://backend:9292
+      - CREATE_DEMO_TENANT=false
     expose:
       - 4321
     ports:

@@ -15,10 +15,12 @@ class App < Roda
   client = KaChing::ApiClient.new(api_version: :v1, base_url: BACKEND_API_URL)
                              .build_client!
 
-  res = begin
-    client.v1.admin.create!(tenant_account_id: 'testuser_1')
-  rescue StandardError
-    nil
+  if ENV.fetch("CREATE_DEMO_TENANT", false) != 'false'
+    begin
+      client.v1.admin.create!(tenant_account_id: 'testuser_1')
+    rescue StandardError => e
+      puts e
+    end
   end
 
   route do |r|
@@ -31,11 +33,11 @@ class App < Roda
         @tenants = res['items']
       rescue StandardError => e
         puts e
-      ensure
-        @tenants ||= [tenant_account_id]
+      else
         @tenants.map! do |tenant|
           tenant['tenant_db_id'].gsub!('kaching_tenant_', '')
         end
+        ensure @tenants ||= []
       end
 
       view 'index'

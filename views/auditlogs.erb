@@ -1,13 +1,13 @@
 <section>
   <div class="container my-4">
     <% unless @auditlogs.any? %>
-      <h2 class="title is-h2">No AuditLogs, yet</h2>
+      <h2 class="title is-2">No AuditLogs, yet</h2>
     <% else %>
       <div class="my-6">
-        <h2 class="title is-h2">AuditLogs</h2>
+        <h2 class="title is-2">AuditLogs</h2>
         <hr>
         <% @auditlogs.each do |audit_log| %>
-          <h4 class="subtitle is-h6"><%= audit_log['realized_at'].strftime('%d-%m-%Y') %>
+          <h4 class="subtitle is-6"><%= audit_log['realized_at'].strftime('%d-%m-%Y') %>
           </h4>
           <h4>Bookings:</h4>
           <table class="table">
