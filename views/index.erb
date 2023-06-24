@@ -1,10 +1,62 @@
-<section class="section">
-  <div class="container">
+<div class="container">
+  <section class="section">
     <h1 class="title">
       ka-ching demo 🤑
     </h1>
     <p class="subtitle">
       a tiny little example app - with docker-compose!
     </p>
-  </div>
-</section>
+    <hr>
+    <p>You can reset everythin by running: <code>$ bin/reset</code>.</p>
+    <p>And then start the app with: <code>$ bin/dev</code> again.</p>
+  </section>
+  <section class="section">
+    <hr>
+    <h4 class="title is-4">Create Tenant</h4>
+    <div class="columns">
+      <div class="column is-6-desktop">
+        <div id="tenant-create-wrapper">
+          <form hx-post="/admin/tenants" hx-trigger="submit throttle:5000ms" hx-target="#tenant-create-wrapper">
+            <div class="field has-addons">
+              <div class="control">
+                <input class="input" name="tenant_account_id" type="text" placeholder="<%= %w[crispy_user_123 jon_doe_69 what_the_fox_33].sample %>">
+                <p class="help is-primary">
+                  do not use whitespaces or fancy chars (like $, % or ❤️)<br>
+                  numbers are optional, but may help.<br>
+                  this regex is applied: /^[a-z0-9_]+$/
+                </p>
+              </div>
+              <div class="control">
+                <button class="button is-info">
+                  Create
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <hr>
+    <h4 class="title is-4">Select Tenant</h4>
+    <% if @tenants.empty? %>
+      <div class="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop">
+        <div class="notification is-info">
+          Create a tenant first 🤓
+        </div>
+      </div>
+    <% else %>
+      <div class="container">
+        <div class="select">
+          <select id="select-tenant" hx-on="change: window.location.href = (document.getElementById('select-tenant').options[document.getElementById('select-tenant').selectedIndex].value) + '/actions'">
+            <option value="" disabled selected hidden>Choose a tenant</option>
+            <% @tenants.each do |tenant| %>
+              <option value="<%= tenant %>"><%= tenant %></option>
+            <% end %>
+          </select>
+        </div>
+      </div>
+    <% end %>
+  </section>
+</div>

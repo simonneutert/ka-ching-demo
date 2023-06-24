@@ -1,15 +1,15 @@
 <section>
   <div class="container my-4">
     <% unless @lockings.any? %>
-      <h2 class="title is-h2">No Lockings, yet</h2>
+      <h2 class="title is-2">No Lockings, yet</h2>
     <% else %>
       <div class="my-6">
-        <h2 class="title is-h2">Lockings</h2>
+        <h2 class="title is-2">Lockings</h2>
         <hr>
         <% @lockings.each do |locking| %>
-          <h4 class="subtitle is-h6"><%= locking['realized_at'].strftime('%d.%m.%Y') %>
+          <h4 class="subtitle is-6"><%= locking['realized_at'].strftime('%d.%m.%Y') %>
             <% if locking['active'] %>
-              <span class="button" hx-delete="/lock">Unlock</span>
+              <span class="button" hx-delete="/<%= @tenant_account_id %>/lock">Unlock</span>
             <% else %>
               <span>inactive</span>
             <% end %>

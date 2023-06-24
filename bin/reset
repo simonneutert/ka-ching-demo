@@ -1,0 +1,11 @@
+#!/bin/bash
+
+docker-compose stop;
+docker-compose pull;
+docker-compose down -v;
+docker-compose up db -d;
+docker-compose up backend -d;
+sleep 3;
+docker-compose run --rm backend "bin/setup";
+docker-compose restart backend;
+docker-compose stop;
