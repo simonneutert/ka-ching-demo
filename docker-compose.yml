@@ -25,6 +25,7 @@ services:
       - DATABASE_URL=db
       - DATABASE_USER=kaching
       - DATABASE_PASSWORD=kaching
+      - KACHING_RESET_PROTECTION=false
     depends_on:
       - db
 

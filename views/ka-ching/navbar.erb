@@ -14,15 +14,17 @@
       <a class="navbar-item" href="/">
         Home
       </a>
-      <a class="navbar-item" href="/actions">
-        Current Book
-      </a>
-      <a class="navbar-item" href="/lockings">
-        Lockings
-      </a>
-      <a class="navbar-item" href="/auditlogs">
-        AuditLogs
-      </a>
+      <% if @tenant_account_id %>
+        <a class="navbar-item" href="/<%= @tenant_account_id %>/actions">
+          Current Book
+        </a>
+        <a class="navbar-item" href="/<%= @tenant_account_id %>/lockings">
+          Lockings
+        </a>
+        <a class="navbar-item" href="/<%= @tenant_account_id %>/auditlogs">
+          AuditLogs
+        </a>
+      <% end %>
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
           More

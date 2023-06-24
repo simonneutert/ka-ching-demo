@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/simonneutert/ka-ching-client.git
-  revision: 5e671b589b752b56188b1e3826656078377231c1
+  revision: fb66c26442133baefeb7c2efda86527dee7244a8
   branch: main
   specs:
-    ka-ching-client (0.2.0)
+    ka-ching-client (0.2.2)
       faraday (~> 2.7.4)
       httpx (>= 0.22.4, < 0.25.0)
 

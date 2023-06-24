@@ -9,7 +9,7 @@
         <% @lockings.each do |locking| %>
           <h4 class="subtitle is-h6"><%= locking['realized_at'].strftime('%d.%m.%Y') %>
             <% if locking['active'] %>
-              <span class="button" hx-delete="/lock">Unlock</span>
+              <span class="button" hx-delete="/<%= @tenant_account_id %>/lock">Unlock</span>
             <% else %>
               <span>inactive</span>
             <% end %>

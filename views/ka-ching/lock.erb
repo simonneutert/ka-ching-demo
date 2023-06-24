@@ -1,7 +1,7 @@
 <h2 class="title is-h2">Lock</h2>
 <div class="columns is-desktop">
   <div class="column">
-    <form hx-post="/lock" hx-trigger="submit throttle:5000ms">
+    <form hx-post="/<%= @tenant_account_id %>/lock" hx-trigger="submit throttle:5000ms">
       <div class="field is-horizontal">
         <div class="field-label is-normal">
           <label class="label">Amount in cents (what you counted)</label>
@@ -63,5 +63,5 @@
     </form>
   </div>
 </div>
-<div hx-get="/saldo" hx-target="#saldo" hx-trigger="load delay:1ms"></div>
-<div hx-get="/bookings" hx-target="#bookings" hx-trigger="load delay:1ms"></div>
+<div hx-get="/<%= @tenant_account_id %>/saldo" hx-target="#saldo" hx-trigger="load delay:1ms"></div>
+<div hx-get="/<%= @tenant_account_id %>/bookings" hx-target="#bookings" hx-trigger="load delay:1ms"></div>

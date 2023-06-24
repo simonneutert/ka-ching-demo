@@ -8,3 +8,13 @@
     </p>
   </div>
 </section>
+<section>
+  <div class="container">
+    <select id="select-tenant" hx-on="change: window.location.href = (document.getElementById('select-tenant').options[document.getElementById('select-tenant').selectedIndex].value) + '/actions'">
+      <option value="" disabled selected hidden>Choose a tenant</option>
+      <% @tenants.each do |tenant| %>
+        <option value="<%= tenant %>"><%= tenant %></option>
+      <% end %>
+    </select>
+  </div>
+</section>
