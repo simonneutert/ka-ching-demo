@@ -1,5 +1,6 @@
-<section>
-  <div class="container my-4">
+<div class="container my-4">
+  <section>
+    <h2 class="title is-h2">Hello, <%= @tenant_account_id %></h2>
     <div id="saldo" hx-trigger="load" hx-get="/<%= @tenant_account_id %>/saldo"></div>
   </div>
 </section>
@@ -26,5 +27,5 @@
     <hr />
     <div id="cashing"></div>
     <div id="bookings" hx-trigger="load" hx-get="/<%= @tenant_account_id %>/bookings"></div>
-  </div>
-</section>
+  </section>
+</div>

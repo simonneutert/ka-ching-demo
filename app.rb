@@ -41,6 +41,41 @@ class App < Roda
       view 'index'
     end
 
+    r.on 'admin' do
+      r.on 'tenants' do
+        r.post do
+          tenant_account_id = r.params['tenant_account_id']
+          begin
+            raise ArgumentError, "name should match regexp: /^[a-z0-9_]+$/" unless tenant_account_id.match?(/^[a-z0-9_]+$/)
+            client.v1.admin.create!(tenant_account_id: tenant_account_id)
+            content = <<~HTML
+            <div id="tenant-notification" class="columns">
+              <div class="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop">
+                <div class="notification is-info">
+                  <button class="delete" onclick="window.location = '/#{tenant_account_id}/actions'"></button>
+                  Tenant #{tenant_account_id} created successfully.
+                  <p class="button is-primary" onclick="window.location = '/#{tenant_account_id}/actions'">Go to tenant</p>
+                </div>
+              </div>
+            </div>
+            HTML
+          rescue => exception
+            @error = exception.message
+            content = <<~HTML
+            <div id="tenant-notification" class="columns">
+              <div class="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop">
+                <div class="notification is-danger">
+                  <button class="delete" onclick="window.location = '/'"></button>
+                  #{@error}
+                </div>
+              </div>
+            </div>
+            HTML
+          end
+        end
+      end
+    end
+
     r.on String do |tenant_account_id|
       if %w[
         actions bookings lockings lock deposit withdraw saldo auditlogs

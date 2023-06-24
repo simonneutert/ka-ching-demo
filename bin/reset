@@ -1,0 +1,8 @@
+#!/bin/bash
+
+docker-compose pull;
+docker-compose down -v;
+docker-compose up -d;
+docker-compose exec -ti backend bin/setup;
+docker-compose restart backend;
+docker attach ka-ching-demo-frontend-1
