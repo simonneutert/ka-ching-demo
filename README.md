@@ -54,6 +54,8 @@ This repository has the purpose to demonstrate what can be easily achieved with 
 
 ## Todos
 
+For features the API backend and client bring, but aren't showcased in this demo, yet.
+
 - [ ] Delete a Booking in the current register
 - [ ] Provide a way to navigate through the AuditLogs
 - [ ] Detail view of a single AuditLog
@@ -91,6 +93,8 @@ This repository has the purpose to demonstrate what can be easily achieved with 
 3. Run `docker-compose up --build` in the root directory of this repository
 4. `ka-ching-backend` is now running on `localhost:4567`
 5. Want to use `binding.pry`? Then: `docker attach ka-ching-demo-frontend-1` in another terminal window 😎
+
+Check out the **/bin** folder 😉
 
 ### Reset the database
 
