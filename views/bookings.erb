@@ -21,6 +21,7 @@
             <th>amount cents</td>
             <th>realized</td>
             <th>context</td>
+            <th>delete?</td>
           </tr>
         </tfoot>
       <% end %>
@@ -32,6 +33,11 @@
             <td><%= booking['realized_at'].strftime('%d.%m.%Y') %></td>
             <td>
               <%= booking['context'] %>
+            </td>
+            <td>
+              <form hx-delete="/<%= @tenant_account_id %>/bookings/<%= booking['id'] %>">
+                <button class="button is-danger" type="submit">delete</button>
+              </form>
             </td>
           </tr>
         <% end %>

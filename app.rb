@@ -97,8 +97,15 @@ class App < Roda
       end
 
       r.on 'bookings' do
-        r.on :id do |id|
-          id
+        r.on :booking_id do |booking_id|
+          r.delete do
+            res = client.v1.bookings.drop!(tenant_account_id:, booking_id:)
+            content = <<~HTML
+              <div hx-get="/#{@tenant_account_id}/saldo" hx-target="#saldo" hx-trigger="load delay:1ms"></div>
+              <div hx-get="/#{@tenant_account_id}/bookings" hx-target="#bookings" hx-trigger="load delay:1ms"></div>
+            HTML
+            content
+          end
         end
 
         r.is do

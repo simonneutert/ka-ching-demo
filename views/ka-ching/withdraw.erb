@@ -1,80 +1,82 @@
-<section class="section">
-  <% if @error%>
-    <div class="columns">
-      <div class="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop">
-        <div class="notification is-danger">
-          <button class="delete" onclick="document.getElementById('cashing').innerHTML=''"></button>
-          <%= @error %>
+<div id="withdraw-form">
+  <section class="section">
+    <% if @error%>
+      <div class="columns">
+        <div class="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop">
+          <div class="notification is-danger">
+            <button class="delete" onclick="document.getElementById('cashing').innerHTML=''"></button>
+            <%= @error %>
+          </div>
         </div>
       </div>
-    </div>
-  <% else %>
-    <h2 class="title is-2">Withdrawal</h2>
-    <div class="columns is-desktop">
-      <div class="column">
-        <form hx-post="/<%= @tenant_account_id %>/withdraw" hx-trigger="submit throttle:5000ms">
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label">Amount in cents</label>
-            </div>
-            <div class="field-body">
-              <div class="field">
-                <p class="control is-expanded">
-                  <input class="input" name="amount_cents" type="number" placeholder="amount in cents">
-                </p>
+    <% else %>
+      <h2 class="title is-2">Withdrawal</h2>
+      <div class="columns is-desktop">
+        <div class="column">
+          <form hx-post="/<%= @tenant_account_id %>/withdraw" hx-trigger="submit throttle:5000ms" hx-target="#withdraw-form">
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label">Amount in cents</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <p class="control is-expanded">
+                    <input class="input" name="amount_cents" type="number" placeholder="amount in cents">
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label">Content for the booking</label>
-            </div>
-            <div class="field-body">
-              <div class="field">
-                <p class="control is-expanded">
-                  <textarea class="textarea" name="context" placeholder="e.g. Hello world or what you want to append to your booking this will be stored in a json column"></textarea>
-                </p>
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label">Content for the booking</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <p class="control is-expanded">
+                    <textarea class="textarea" name="context" placeholder="e.g. Hello world or what you want to append to your booking this will be stored in a json column"></textarea>
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label">Date of booking (yyyy/mm/dd)</label>
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label">Date of booking (yyyy/mm/dd)</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <p class="control is-expanded">
+                    <input class="input" name="year" type="number" placeholder="2023" value="<%= Date.today.year %>">
+                  </p>
+                </div>
+                <div class="field">
+                  <p class="control is-expanded">
+                    <input class="input" name="month" type="number" placeholder="1" value="<%= Date.today.month %>">
+                  </p>
+                </div>
+                <div class="field">
+                  <p class="control is-expanded">
+                    <input class="input" name="day" type="number" placeholder="1" value="<%= Date.today.day %>">
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="field-body">
-              <div class="field">
-                <p class="control is-expanded">
-                  <input class="input" name="year" type="number" placeholder="2023" value="<%= Date.today.year %>">
-                </p>
-              </div>
-              <div class="field">
-                <p class="control is-expanded">
-                  <input class="input" name="month" type="number" placeholder="1" value="<%= Date.today.month %>">
-                </p>
-              </div>
-              <div class="field">
-                <p class="control is-expanded">
-                  <input class="input" name="day" type="number" placeholder="1" value="<%= Date.today.day %>">
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="field is-grouped is-grouped-right">
-            <p class="control">
-              <button class="button is-primary">
-                Submit
-              </button>
-            </p>
-            <p class="control">
-              <p class="button is-light" onclick="document.getElementById('cashing').innerHTML=''">
-                Cancel
+            <div class="field is-grouped is-grouped-right">
+              <p class="control">
+                <button class="button is-primary">
+                  Submit
+                </button>
               </p>
-            </p>
-          </div>
-        </form>
+              <p class="control">
+                <p class="button is-light" onclick="document.getElementById('cashing').innerHTML=''">
+                  Cancel
+                </p>
+              </p>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
-    <div hx-get="/<%= @tenant_account_id %>/saldo" hx-target="#saldo" hx-trigger="load delay:1ms"></div>
-    <div hx-get="/<%= @tenant_account_id %>/bookings" hx-target="#bookings" hx-trigger="load delay:1ms"></div>
-  <% end %>
-</section>
+      <div hx-get="/<%= @tenant_account_id %>/saldo" hx-target="#saldo" hx-trigger="load delay:1ms"></div>
+      <div hx-get="/<%= @tenant_account_id %>/bookings" hx-target="#bookings" hx-trigger="load delay:1ms"></div>
+    <% end %>
+  </section>
+</div>
