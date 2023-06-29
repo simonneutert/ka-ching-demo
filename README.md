@@ -54,19 +54,19 @@ This project has the purpose to demonstrate what can be easily achieved with:
 - [x] Show notifications/toasts on errors
   - [x] withdraw
   - [x] deposit
+- [x] Delete a Booking in the current activeregister
+- [ ] Show notifications/toasts on errors
+  - [ ] locking
+  - [ ] deletion of a booking
 
 ## Todos
 
 For features the API backend and client bring, but aren't showcased in this demo, yet.
 
-- [ ] Delete a Booking in the current register
 - [ ] Provide a way to navigate through the AuditLogs
 - [ ] Detail view of a single AuditLog
 - [ ] Detail view of a single Lock
 - [ ] Detail view of a single Booking
-- [ ] Show notifications/toasts on errors
-  - [ ] locking
-  - [ ] deletion of a booking
 
 <details>
   <summary>Roadmap / Planned</summary>

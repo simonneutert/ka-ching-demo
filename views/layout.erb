@@ -2,13 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ka-ching demo 🤑</title>
     <link rel="stylesheet" href="/bulma.css">
     <script src="/htmx.js" ></script>
   </head>
   <body>
     <%= render 'navbar' %>
-    <%= yield %>
+    <section class="section">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </section>
   </body>
 </html>

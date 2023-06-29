@@ -1,31 +1,23 @@
-<div class="container my-4">
-  <section>
-    <h2 class="title is-2">Hello, <%= @tenant_account_id %></h2>
-    <div id="saldo" hx-trigger="load" hx-get="/<%= @tenant_account_id %>/saldo"></div>
-  </div>
-</section>
-<section class="py-6">
-  <div class="container">
-    <p><strong>Actions:</strong></p>
-    <div class="field is-grouped">
-      <p class="control">
-        <button class="button is-link" hx-get="/<%= @tenant_account_id %>/deposit" hx-target="#cashing">
-          Book Deposit
-        </button>
-      </p>
-      <p class="control">
-        <button class="button is-primary" hx-get="/<%= @tenant_account_id %>/withdraw" hx-target="#cashing">
-          Book Withdrawal
-        </button>
-      </p>
-      <p class="control">
-        <button class="button is-danger" hx-get="/<%= @tenant_account_id %>/lock" hx-target="#cashing">
-          Lock
-        </button>
-      </p>
-    </div>
-    <hr />
-    <div id="cashing"></div>
-    <div id="bookings" hx-trigger="load" hx-get="/<%= @tenant_account_id %>/bookings"></div>
-  </section>
+<h2 class="title is-2">Hello, <%= @tenant_account_id %></h2>
+<div id="saldo" hx-trigger="load" hx-get="/<%= @tenant_account_id %>/saldo"></div>
+<p><strong>Actions:</strong></p>
+<div class="field is-grouped">
+  <p class="control">
+    <button class="button is-link" hx-get="/<%= @tenant_account_id %>/deposit" hx-target="#cashing">
+      Book Deposit
+    </button>
+  </p>
+  <p class="control">
+    <button class="button is-primary" hx-get="/<%= @tenant_account_id %>/withdraw" hx-target="#cashing">
+      Book Withdrawal
+    </button>
+  </p>
+  <p class="control">
+    <button class="button is-danger" hx-get="/<%= @tenant_account_id %>/lock" hx-target="#cashing">
+      Lock
+    </button>
+  </p>
 </div>
+<hr />
+<div id="cashing"></div>
+<div id="bookings" hx-trigger="load" hx-get="/<%= @tenant_account_id %>/bookings"></div>

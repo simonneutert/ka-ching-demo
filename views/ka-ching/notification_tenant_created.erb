@@ -1,0 +1,21 @@
+<% if @error %>
+  <div id="tenant-notification" class="columns">
+    <div class="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop">
+      <div class="notification is-danger">
+        <button class="delete" onclick="window.location = '/'"></button>
+        <%= @error.message %>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div id="tenant-notification" class="columns">
+    <div class="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop">
+      <div class="notification is-info">
+        <button class="delete" onclick="window.location = '/<%= @tenant_account_id %>/actions'"></button>
+        <p>Tenant created successfully.</p>
+        <hr>
+        <p class="button is-primary" onclick="window.location = '/<%= @tenant_account_id %>/actions'">Go to <%= @tenant_account_id %></p>
+      </div>
+    </div>
+  </div>
+<% end %>

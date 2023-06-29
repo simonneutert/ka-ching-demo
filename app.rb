@@ -28,6 +28,10 @@ class App < Roda
     r.public
 
     r.root do
+      view 'index'
+    end
+
+    r.on 'tenants' do
       begin
         res = client.v1.tenants.all(page: 1)
         @tenants = res['items']
@@ -37,10 +41,10 @@ class App < Roda
         @tenants.map! do |tenant|
           tenant['tenant_db_id'].gsub!('kaching_tenant_', '')
         end
-      ensure @tenants ||= []
+      ensure
+        @tenants ||= []
       end
-
-      view 'index'
+      view 'tenants'
     end
 
     r.on 'admin' do
@@ -54,30 +58,12 @@ class App < Roda
             end
 
             client.v1.admin.create!(tenant_account_id:)
-            content = <<~HTML
-              <div id="tenant-notification" class="columns">
-                <div class="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop">
-                  <div class="notification is-info">
-                    <button class="delete" onclick="window.location = '/#{tenant_account_id}/actions'"></button>
-                    Tenant #{tenant_account_id} created successfully.
-                    <p class="button is-primary" onclick="window.location = '/#{tenant_account_id}/actions'">Go to tenant</p>
-                  </div>
-                </div>
-              </div>
-            HTML
+            @tenant_account_id = tenant_account_id
           rescue StandardError => e
-            @error = e.message
-            content = <<~HTML
-              <div id="tenant-notification" class="columns">
-                <div class="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop">
-                  <div class="notification is-danger">
-                    <button class="delete" onclick="window.location = '/'"></button>
-                    #{@error}
-                  </div>
-                </div>
-              </div>
-            HTML
+            @error = e
+            binding.pry
           end
+          render 'ka-ching/notification_tenant_created'
         end
       end
     end
