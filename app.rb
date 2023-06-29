@@ -15,7 +15,7 @@ class App < Roda
   client = KaChing::ApiClient.new(api_version: :v1, base_url: BACKEND_API_URL)
                              .build_client!
 
-  if ENV.fetch("CREATE_DEMO_TENANT", false) != 'false'
+  if ENV.fetch('CREATE_DEMO_TENANT', false) != 'false'
     begin
       client.v1.admin.create!(tenant_account_id: 'testuser_1')
     rescue StandardError => e
@@ -37,7 +37,7 @@ class App < Roda
         @tenants.map! do |tenant|
           tenant['tenant_db_id'].gsub!('kaching_tenant_', '')
         end
-        ensure @tenants ||= []
+      ensure @tenants ||= []
       end
 
       view 'index'
@@ -48,30 +48,34 @@ class App < Roda
         r.post do
           tenant_account_id = r.params['tenant_account_id']
           begin
-            raise ArgumentError, "name should match regexp: /^[a-z0-9_]+$/" unless tenant_account_id.match?(/^[a-z0-9_]+$/)
-            client.v1.admin.create!(tenant_account_id: tenant_account_id)
+            unless tenant_account_id.match?(/^[a-z0-9_]+$/)
+              raise ArgumentError,
+                    'name should match regexp: /^[a-z0-9_]+$/'
+            end
+
+            client.v1.admin.create!(tenant_account_id:)
             content = <<~HTML
-            <div id="tenant-notification" class="columns">
-              <div class="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop">
-                <div class="notification is-info">
-                  <button class="delete" onclick="window.location = '/#{tenant_account_id}/actions'"></button>
-                  Tenant #{tenant_account_id} created successfully.
-                  <p class="button is-primary" onclick="window.location = '/#{tenant_account_id}/actions'">Go to tenant</p>
+              <div id="tenant-notification" class="columns">
+                <div class="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop">
+                  <div class="notification is-info">
+                    <button class="delete" onclick="window.location = '/#{tenant_account_id}/actions'"></button>
+                    Tenant #{tenant_account_id} created successfully.
+                    <p class="button is-primary" onclick="window.location = '/#{tenant_account_id}/actions'">Go to tenant</p>
+                  </div>
                 </div>
               </div>
-            </div>
             HTML
-          rescue => exception
-            @error = exception.message
+          rescue StandardError => e
+            @error = e.message
             content = <<~HTML
-            <div id="tenant-notification" class="columns">
-              <div class="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop">
-                <div class="notification is-danger">
-                  <button class="delete" onclick="window.location = '/'"></button>
-                  #{@error}
+              <div id="tenant-notification" class="columns">
+                <div class="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop">
+                  <div class="notification is-danger">
+                    <button class="delete" onclick="window.location = '/'"></button>
+                    #{@error}
+                  </div>
                 </div>
               </div>
-            </div>
             HTML
           end
         end
@@ -113,14 +117,20 @@ class App < Roda
 
       r.on 'lock' do
         r.post do
-          res = client.v1.lockings.lock!(
-            tenant_account_id:,
-            amount_cents_saldo_user_counted: r.params['amount_cents'].to_i,
-            year: r.params['year'].to_i,
-            month: r.params['month'].to_i,
-            day: r.params['day'].to_i,
-            context: { content: r.params['context'] }
-          )
+          begin
+            res = client.v1.lockings.lock!(
+              tenant_account_id:,
+              amount_cents_saldo_user_counted: r.params['amount_cents'].to_i,
+              year: r.params['year'].to_i,
+              month: r.params['month'].to_i,
+              day: r.params['day'].to_i,
+              context: { content: r.params['context'] }
+            )
+          rescue StandardError => e
+            puts e
+            error_body = JSON.parse(e.response[:body])
+            @error = error_body['message'] || error_body['status']
+          end
           render 'ka-ching/lock'
         end
 
