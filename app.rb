@@ -33,8 +33,8 @@ class App < Roda
 
     r.on 'tenants' do
       begin
-        res = client.v1.tenants.all(page: 1)
-        @tenants = res['items']
+        res = client.v1.tenants.all(page: 1, per_page: 1000)
+        @tenants = res['items'].sort_by { |tenant| tenant['tenant_db_id'] }
       rescue StandardError => e
         puts e
       else
