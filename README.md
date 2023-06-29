@@ -1,6 +1,9 @@
 # ka-ching Demo repository<!-- omit in toc -->
 
-This repository has the purpose to demonstrate what can be easily achieved with the [ka-ching-backend](https://github.com/simonneutert/ka-ching-backend) and [ka-ching-client](https://github.com/simonneutert/ka-ching-client) repositories.
+This project has the purpose to demonstrate what can be easily achieved with:
+
+- [ka-ching-backend](https://github.com/simonneutert/ka-ching-backend)
+- [ka-ching-client](https://github.com/simonneutert/ka-ching-client)
 
 ---
 
