@@ -5,6 +5,14 @@ This project has the purpose to demonstrate what can be easily achieved with:
 - [ka-ching-backend](https://github.com/simonneutert/ka-ching-backend)
 - [ka-ching-client](https://github.com/simonneutert/ka-ching-client)
 
+This project serves as a starting point for users interested in building their own customized cash register systems. It is important to note that this demo represents just one of the countless ways to utilize the backend and client components provided. By exploring this project, you will gain insights into the core features and workflows that power a modern cash register system.
+
+While this demo project provides a solid foundation, we encourage you to customize and adapt it to suit your specific requirements. Consider it a flexible template, ready to be tailored to your unique business needs, industry, and user preferences. By leveraging the code and concepts presented here, you can create a cash register system that aligns perfectly with your vision.
+
+Whether you are a developer seeking inspiration or a business owner exploring the possibilities, we believe that this demo project will inspire you to craft your ideal cash register system. It is just the tip of the iceberg, representing one of the million potential directions you can take.
+
+So, dive in, explore the code, and embark on your journey of building a cash register system that suits your aspirations. I am excited to see the innovative applications you develop using this project as your starting point. Happy coding!
+
 ---
 
 - [Screenshots](#screenshots)
