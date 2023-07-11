@@ -225,7 +225,7 @@ class App < Roda
         @auditlogs.map! do |auditlog|
           auditlog['realized_at'] = Time.parse(auditlog['environment_snapshot']['realized_at'])
           auditlog['locking_id'] = auditlog['environment_snapshot']['id']
-          auditlog['bookings'] = auditlog['environment_snapshot']['bookings_json'].map do |booking|
+          auditlog['bookings'] = auditlog['environment_snapshot']['bookings'].map do |booking|
             booking['context'] = booking['context']['content']
             booking['realized_at'] = Time.parse(booking['realized_at'])
             booking

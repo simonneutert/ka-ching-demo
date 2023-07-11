@@ -141,4 +141,4 @@ Then run `docker-compose up --build` again. And follow the steps below once more
 **You will need to initialize the database.**  
 To do so, run `docker-compose run --rm backend bin/setup` in another terminal window.  
 This will create the database and populate it with some sample data.
-THEN stop your containers `ctrl + c` to fire everything up, for good `docker-compose up`.
+THEN stop your containers `ctrl + c` and `bin/dev`.
