@@ -61,7 +61,6 @@ class App < Roda
             @tenant_account_id = tenant_account_id
           rescue StandardError => e
             @error = e
-            binding.pry
           end
           render 'ka-ching/notification_tenant_created'
         end
@@ -98,7 +97,7 @@ class App < Roda
           res = client.v1.bookings.unlocked(tenant_account_id:)
           @bookings = res['bookings']
           @bookings.map! do |booking|
-            booking['context'] = JSON.parse(booking['context'])['content']
+            booking['context'] = booking['context']['content']
             booking['realized_at'] = Time.parse(booking['realized_at'])
             booking
           end
@@ -148,10 +147,10 @@ class App < Roda
           res = client.v1.lockings.all(tenant_account_id:)
           @lockings = res['items']
           @lockings.map! do |locking|
-            locking['context'] = JSON.parse(locking['context'])['content']
+            locking['context'] = locking['context']['content']
             locking['realized_at'] = Time.parse(locking['realized_at'])
-            locking['bookings'] = JSON.parse(locking['bookings_json']).map do |booking|
-              booking['context'] = JSON.parse(booking['context'])['content']
+            locking['bookings'] = locking['bookings'].map do |booking|
+              booking['context'] = booking['context']['content']
               booking['realized_at'] = Time.parse(booking['realized_at'])
               booking
             end
@@ -221,12 +220,13 @@ class App < Roda
         year = r.params.fetch('year', Time.now.year).to_i
         page = r.params.fetch('page', 1).to_i
         per_page = r.params.fetch('per_page', 10).to_i
+        
         @auditlogs = client.v1.audit_logs.of_year(tenant_account_id:, year:)
         @auditlogs.map! do |auditlog|
           auditlog['realized_at'] = Time.parse(auditlog['environment_snapshot']['realized_at'])
           auditlog['locking_id'] = auditlog['environment_snapshot']['id']
-          auditlog['bookings'] = JSON.parse(auditlog['environment_snapshot']['bookings_json']).map do |booking|
-            booking['context'] = JSON.parse(booking['context'])['content']
+          auditlog['bookings'] = auditlog['environment_snapshot']['bookings_json'].map do |booking|
+            booking['context'] = booking['context']['content']
             booking['realized_at'] = Time.parse(booking['realized_at'])
             booking
           end
