@@ -125,20 +125,12 @@ For features the API backend and client bring, but aren't showcased in this demo
 
 1. Clone/Download this repository
 2. Run `docker-compose pull` in the root directory of this repository
-3. Run `docker-compose up --build` in the root directory of this repository
-4. `ka-ching-backend` is now running on `localhost:4567`
-5. Want to use `binding.pry`? Then: `docker attach ka-ching-demo-frontend-1` in another terminal window 😎
+3. Run `docker-compose build` in the root directory of this repository
+4. Now get everything up and running with `bin/dev`
+5. `ka-ching-backend` is now running on `localhost:4567`
 
-Check out the **/bin** folder 😉
+Check out what's in the **/bin** folder 😉
 
 ### Reset the database
 
-Stop your containers `ctrl + c` and run `docker-compose down` in the root directory of this repository.  
-Then run `docker-compose up --build` again. And follow the steps below once more 😉
-
-### IMPORTANT If it is your first time running the application<!-- omit in toc -->
-
-**You will need to initialize the database.**  
-To do so, run `docker-compose run --rm backend bin/setup` in another terminal window.  
-This will create the database and populate it with some sample data.
-THEN stop your containers `ctrl + c` and `bin/dev`.
+`bin/reset` and when finished `bin/dev` to get everything up and running again 🤷‍♂️
