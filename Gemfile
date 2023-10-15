@@ -6,7 +6,7 @@ gem 'ka-ching-client', git: 'https://github.com/simonneutert/ka-ching-client.git
 gem 'money', '~> 6.16'
 gem 'rack-unreloader', '~> 2.1'
 gem 'rackup', '~> 2.1'
-gem 'roda', '~> 3.69'
+gem 'roda', '~> 3.73'
 
 group :development do
   gem 'htmlbeautifier', '~> 1.4'
