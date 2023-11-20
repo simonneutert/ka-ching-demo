@@ -1,5 +1,11 @@
 # ka-ching Demo repository<!-- omit in toc -->
 
+## IMPORTANT
+
+[ka-ching-backend](https://github.com/simonneutert/ka-ching-backend) and [ka-ching-client](https://github.com/simonneutert/ka-ching-client) DO NOT come with a frontend, this project is one of the unlimited ways you could hook it up and comes with a HTMx frontend, but anything else would work 💡
+
+---
+
 This project has the purpose to demonstrate what can be easily achieved with:
 
 - [ka-ching-backend](https://github.com/simonneutert/ka-ching-backend)
