@@ -14,5 +14,5 @@ group :development do
   gem 'rake', '~> 13.1'
   gem 'rubocop', '~> 1.58.0', require: false
   gem 'rubocop-performance', '~> 1.19.1', require: false
-  gem 'solargraph', '~> 0.49.0', require: false
+  gem 'solargraph', '~> 0.50.0', require: false
 end
