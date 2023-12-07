@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/simonneutert/ka-ching-client.git
-  revision: 129c4ec1a6c10c6871ef707907caa38c4609129e
+  revision: acc2ae755c7b265495c3b4cd0d48ed0b283c96b5
   branch: main
   specs:
     ka-ching-client (0.4.3)
