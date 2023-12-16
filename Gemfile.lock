@@ -47,7 +47,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.15.5-x86_64-linux)
       racc (~> 1.4)
-    parallel (1.23.0)
+    parallel (1.24.0)
     parser (3.2.2.4)
       ast (~> 2.4.1)
       racc
@@ -69,7 +69,7 @@ GEM
     rexml (3.2.6)
     roda (3.74.0)
       rack
-    rubocop (1.58.0)
+    rubocop (1.59.0)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
@@ -123,7 +123,7 @@ DEPENDENCIES
   rackup (~> 2.1)
   rake (~> 13.1)
   roda (~> 3.74)
-  rubocop (~> 1.58.0)
+  rubocop (~> 1.59.0)
   rubocop-performance (~> 1.19.1)
   solargraph (~> 0.50.0)
 
