@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/simonneutert/ka-ching-client.git
-  revision: acc2ae755c7b265495c3b4cd0d48ed0b283c96b5
+  revision: e8e6c0e01658a2b64b8e227bb87ccc52bb74dff5
   branch: main
   specs:
     ka-ching-client (0.4.3)
@@ -24,7 +24,7 @@ GEM
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
     htmlbeautifier (1.4.2)
-    http-2-next (1.0.1)
+    http-2-next (1.0.2)
     httpx (1.1.5)
       http-2-next (>= 1.0.1)
     i18n (1.14.1)
