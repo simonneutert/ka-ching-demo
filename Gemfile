@@ -13,6 +13,6 @@ group :development do
   gem 'pry', '~> 0.14.2'
   gem 'rake', '~> 13.1'
   gem 'rubocop', '~> 1.59.0', require: false
-  gem 'rubocop-performance', '~> 1.19.1', require: false
+  gem 'rubocop-performance', '~> 1.20.0', require: false
   gem 'solargraph', '~> 0.50.0', require: false
 end
