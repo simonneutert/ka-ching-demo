@@ -1,11 +1,11 @@
 GIT
   remote: https://github.com/simonneutert/ka-ching-client.git
-  revision: e8e6c0e01658a2b64b8e227bb87ccc52bb74dff5
+  revision: 6dc993a5416b51d50fe241f932c3f172124bd9e7
   branch: main
   specs:
-    ka-ching-client (0.4.3)
-      faraday (~> 2.7.10)
-      httpx (>= 0.22.4, < 1.2.0)
+    ka-ching-client (0.4.4)
+      faraday (>= 2.7.10, < 2.9.0)
+      httpx (>= 0.22.4, < 1.3.0)
 
 GEM
   remote: https://rubygems.org/
@@ -18,14 +18,14 @@ GEM
     concurrent-ruby (1.2.2)
     diff-lcs (1.5.0)
     e2mmap (0.1.0)
-    faraday (2.7.12)
+    faraday (2.8.1)
       base64
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
     htmlbeautifier (1.4.2)
     http-2-next (1.0.2)
-    httpx (1.1.5)
+    httpx (1.2.0)
       http-2-next (>= 1.0.1)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
