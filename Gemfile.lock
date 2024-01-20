@@ -69,11 +69,11 @@ GEM
     rexml (3.2.6)
     roda (3.76.0)
       rack
-    rubocop (1.59.0)
+    rubocop (1.60.1)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
-      parser (>= 3.2.2.4)
+      parser (>= 3.3.0.2)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
       rexml (>= 3.2.5, < 4.0)
@@ -123,7 +123,7 @@ DEPENDENCIES
   rackup (~> 2.1)
   rake (~> 13.1)
   roda (~> 3.76)
-  rubocop (~> 1.59.0)
+  rubocop (~> 1.60.1)
   rubocop-performance (~> 1.20.2)
   solargraph (~> 0.50.0)
 
