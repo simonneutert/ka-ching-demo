@@ -8,3 +8,21 @@
 # where the inspected file is and continue its way up to the root directory.
 #
 # See https://docs.rubocop.org/rubocop/configuration
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - "bin/**/*"
+    - "vendor/bundle/**/*"
+
+Metrics/BlockLength:
+  Exclude:
+    - "app.rb"
+
+Metrics/ClassLength:
+  Exclude:
+    - "app.rb"
+
+Lint/UselessAssignment:
+  Exclude:
+    - "app.rb"
