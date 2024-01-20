@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/simonneutert/ka-ching-client.git
-  revision: 6dc993a5416b51d50fe241f932c3f172124bd9e7
+  revision: 40fef1c1d5b2d59c303b7cf8e829a2bf403b9b08
   branch: main
   specs:
-    ka-ching-client (0.4.4)
+    ka-ching-client (0.5.2)
       faraday (>= 2.7.10, < 2.9.0)
       httpx (>= 0.22.4, < 1.3.0)
 
@@ -15,7 +15,7 @@ GEM
     base64 (0.2.0)
     benchmark (0.3.0)
     coderay (1.1.3)
-    concurrent-ruby (1.2.2)
+    concurrent-ruby (1.2.3)
     diff-lcs (1.5.0)
     e2mmap (0.1.0)
     faraday (2.8.1)
@@ -24,9 +24,9 @@ GEM
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
     htmlbeautifier (1.4.2)
-    http-2-next (1.0.2)
-    httpx (1.2.0)
-      http-2-next (>= 1.0.1)
+    http-2-next (1.0.3)
+    httpx (1.2.1)
+      http-2-next (>= 1.0.3)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.6)
@@ -48,7 +48,7 @@ GEM
     nokogiri (1.16.0-x86_64-linux)
       racc (~> 1.4)
     parallel (1.24.0)
-    parser (3.3.0.3)
+    parser (3.3.0.4)
       ast (~> 2.4.1)
       racc
     pry (0.14.2)
