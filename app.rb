@@ -220,7 +220,7 @@ class App < Roda
         year = r.params.fetch('year', Time.now.year).to_i
         page = r.params.fetch('page', 1).to_i
         per_page = r.params.fetch('per_page', 10).to_i
-        
+
         @auditlogs = client.v1.audit_logs.of_year(tenant_account_id:, year:)
         @auditlogs.map! do |auditlog|
           auditlog['realized_at'] = Time.parse(auditlog['environment_snapshot']['realized_at'])
