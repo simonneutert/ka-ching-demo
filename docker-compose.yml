@@ -10,25 +10,32 @@ services:
     volumes:
       - .:/app
     environment:
-      - API_URL=http://backend:9292
-      - CREATE_DEMO_TENANT=false
+      API_URL: http://backend:9292
+      CREATE_DEMO_TENANT: false
+      # LD_PRELOAD: /usr/lib/x86_64-linux-gnu/libjemalloc.so.2
+      # LD_PRELOAD: /usr/lib/aarch64-linux-gnu/libjemalloc.so.2
     expose:
       - 4321
     ports:
       - 4321:4321
     depends_on:
-      - db
-      - backend
+      backend:
+        condition: service_started
+      db:
+        condition: service_healthy
 
   backend:
     image: ghcr.io/simonneutert/ka-ching-backend:main
     environment:
-      - DATABASE_URL=db
-      - DATABASE_USER=kaching
-      - DATABASE_PASSWORD=kaching
-      - KACHING_RESET_PROTECTION=false
+      DATABASE_URL: db
+      DATABASE_USER: kaching
+      DATABASE_PASSWORD: kaching
+      KACHING_RESET_PROTECTION: false
+      # LD_PRELOAD: /usr/lib/x86_64-linux-gnu/libjemalloc.so.2
+      # LD_PRELOAD: /usr/lib/aarch64-linux-gnu/libjemalloc.so.2
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   db:
     image: postgres:15-alpine
@@ -37,3 +44,8 @@ services:
       POSTGRES_PASSWORD: kaching
       LC_ALL: C.UTF-8
       LANG: en_US.UTF-8
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
