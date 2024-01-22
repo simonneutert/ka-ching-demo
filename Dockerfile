@@ -20,4 +20,4 @@ RUN bundle install -j4
 COPY views/ ./views
 COPY config.ru app.rb ./
 
-CMD [ "rackup", "--host", "0", "-p", "4321" ]
+CMD [ "rackup", "-s", "puma", "--host", "0", "-p", "4321" ]
