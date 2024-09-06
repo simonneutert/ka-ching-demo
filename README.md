@@ -135,7 +135,7 @@ For features the API backend and client bring, but aren't showcased in this demo
 docker compose pull
 docker compose build
 docker compose up -d db && sleep 10 # wait for the db to be ready
-docker compose run -i --rm backend bin/setup
+docker compose run -i --rm backend bin/setup # prepare the database
 docker compose up
 ```
 
