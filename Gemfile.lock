@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/simonneutert/ka-ching-client.git
-  revision: 40fef1c1d5b2d59c303b7cf8e829a2bf403b9b08
+  revision: 0bf1781523f529cb32fdbb14362d5a61de98b496
   branch: main
   specs:
-    ka-ching-client (0.5.2)
+    ka-ching-client (0.6.0)
       faraday (>= 2.7.10, < 2.9.0)
       httpx (>= 0.22.4, < 1.3.0)
 
@@ -26,7 +26,7 @@ GEM
     faraday-net_http (3.0.2)
     htmlbeautifier (1.4.2)
     http-2-next (1.0.3)
-    httpx (1.2.1)
+    httpx (1.2.6)
       http-2-next (>= 1.0.3)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
@@ -134,4 +134,4 @@ DEPENDENCIES
   solargraph (~> 0.50.0)
 
 BUNDLED WITH
-   2.5.5
+   2.5.18
