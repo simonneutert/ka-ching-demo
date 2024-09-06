@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'bigdecimal', '~> 3.1'
-gem 'ka-ching-client', git: 'https://github.com/simonneutert/ka-ching-client.git', branch: 'main'
+gem 'ka-ching-client', '~> 0.6.0'
 gem 'money', '~> 6.16'
 gem 'puma', '~> 6.4'
 gem 'rack-unreloader', '~> 2.1'
