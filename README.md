@@ -21,9 +21,11 @@ So, dive in, explore the code, and embark on your journey of building a cash reg
 
 ---
 
+- [IMPORTANT](#important)
 - [Screenshots](#screenshots)
 - [Features](#features)
 - [Todos](#todos)
+- [Run locally with `Docker compose`](#run-locally-with-docker-compose)
 - [Local development environment (with Docker)](#local-development-environment-with-docker)
   - [Reset the database](#reset-the-database)
 
@@ -126,6 +128,16 @@ For features the API backend and client bring, but aren't showcased in this demo
 - [ ] csv export of AuditLogs
 
 </details>
+
+## Run locally with `Docker compose`
+
+```bash
+docker compose pull
+docker compose build
+docker compose up -d db && sleep 10 # wait for the db to be ready
+docker compose run -i --rm backend bin/setup
+docker compose up
+```
 
 ## Local development environment (with Docker)
 
