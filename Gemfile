@@ -8,7 +8,7 @@ gem 'money', '~> 6.16'
 gem 'puma', '~> 6.4'
 gem 'rack-unreloader', '~> 2.1'
 gem 'rackup', '~> 2.1'
-gem 'roda', '~> 3.84'
+gem 'roda', '~> 3.85'
 
 group :development do
   gem 'htmlbeautifier', '~> 1.4'
