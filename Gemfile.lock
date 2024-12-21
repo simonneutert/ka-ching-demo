@@ -66,7 +66,7 @@ GEM
     reverse_markdown (2.1.1)
       nokogiri
     rexml (3.3.9)
-    roda (3.86.0)
+    roda (3.87.0)
       rack
     rubocop (1.69.2)
       json (~> 2.3)
@@ -123,7 +123,7 @@ DEPENDENCIES
   rack-unreloader (~> 2.1)
   rackup (~> 2.2)
   rake (~> 13.1)
-  roda (~> 3.86)
+  roda (~> 3.87)
   rubocop (~> 1.69.2)
   rubocop-performance (~> 1.23.0)
   solargraph (~> 0.50.0)
