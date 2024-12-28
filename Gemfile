@@ -12,7 +12,7 @@ gem 'roda', '~> 3.87'
 
 group :development do
   gem 'htmlbeautifier', '~> 1.4'
-  gem 'pry', '~> 0.15.0'
+  gem 'pry', '~> 0.15.2'
   gem 'rake', '~> 13.1'
   gem 'rubocop', '~> 1.69.2', require: false
   gem 'rubocop-performance', '~> 1.23.0', require: false
