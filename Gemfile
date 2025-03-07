@@ -14,7 +14,7 @@ group :development do
   gem 'htmlbeautifier', '~> 1.4'
   gem 'pry', '~> 0.15.2'
   gem 'rake', '~> 13.1'
-  gem 'rubocop', '~> 1.71.1', require: false
-  gem 'rubocop-performance', '~> 1.23.1', require: false
-  gem 'solargraph', '~> 0.51.2', require: false
+  gem 'rubocop', '~> 1.73.2', require: false
+  gem 'rubocop-performance', '~> 1.24.0', require: false
+  gem 'solargraph', '~> 0.52.0', require: false
 end
