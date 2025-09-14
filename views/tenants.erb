@@ -11,7 +11,7 @@
       <% else %>
         <div class="container">
           <div class="select">
-            <select id="select-tenant" hx-on="change: window.location.href = (document.getElementById('select-tenant').options[document.getElementById('select-tenant').selectedIndex].value) + '/actions'">
+            <select id="select-tenant" onchange="window.location.href = this.value + '/actions'">
               <option value="" disabled selected hidden>Choose a tenant</option>
               <% @tenants.each do |tenant| %>
                 <option value="<%= tenant %>"><%= tenant %></option>
