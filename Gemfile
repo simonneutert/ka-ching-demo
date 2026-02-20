@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-gem 'bigdecimal', '~> 3.3'
+gem 'bigdecimal', '~> 4.0'
 gem 'ka-ching-client', '~> 0.7.4'
 gem 'money', '~> 6.16'
 gem 'puma', '~> 7.2'
