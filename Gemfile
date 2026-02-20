@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 gem 'bigdecimal', '~> 4.0'
 gem 'ka-ching-client', '~> 0.7.4'
-gem 'money', '~> 6.16'
+gem 'money', '~> 7.0'
 gem 'puma', '~> 7.2'
 gem 'rack-unreloader', '~> 2.1'
 gem 'rackup', '~> 2.3'
