@@ -22,7 +22,7 @@ GEM
       concurrent-ruby (~> 1.0)
     io-console (0.8.2)
     jaro_winkler (1.7.0)
-    json (2.19.5)
+    json (2.19.7)
     ka-ching-client (0.7.6)
       faraday (>= 2.7.10, < 2.15.0)
       httpx (>= 1.0.0, < 1.8.0)
@@ -69,8 +69,9 @@ GEM
       rack (>= 3)
     rainbow (3.1.1)
     rake (13.4.2)
-    rbs (3.10.4)
+    rbs (4.0.2)
       logger
+      prism (>= 1.6.0)
       tsort
     regexp_parser (2.12.0)
     reline (0.6.3)
@@ -78,9 +79,9 @@ GEM
     reverse_markdown (3.0.2)
       nokogiri
     rexml (3.4.4)
-    roda (3.103.0)
+    roda (3.104.0)
       rack
-    rubocop (1.86.1)
+    rubocop (1.87.0)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
@@ -99,7 +100,7 @@ GEM
       rubocop (>= 1.75.0, < 2.0)
       rubocop-ast (>= 1.47.1, < 2.0)
     ruby-progressbar (1.13.0)
-    solargraph (0.58.3)
+    solargraph (0.59.2)
       ast (~> 2.4.3)
       backport (~> 1.2)
       benchmark (~> 0.4)
@@ -114,7 +115,7 @@ GEM
       ostruct (~> 0.6)
       parser (~> 3.0)
       prism (~> 1.4)
-      rbs (>= 3.6.1, <= 4.0.0.dev.4)
+      rbs (>= 3.10.0)
       reverse_markdown (~> 3.0)
       rubocop (~> 1.76)
       thor (~> 1.0)
@@ -129,7 +130,7 @@ GEM
       unicode-emoji (~> 4.1)
     unicode-emoji (4.2.0)
     uri (1.1.1)
-    yard (0.9.42)
+    yard (0.9.44)
     yard-activesupport-concern (0.0.1)
       yard (>= 0.8)
     yard-solargraph (0.1.0)
@@ -150,10 +151,10 @@ DEPENDENCIES
   rack-unreloader (~> 2.1)
   rackup (~> 2.3)
   rake (~> 13.4)
-  roda (~> 3.103)
-  rubocop (~> 1.86.1)
+  roda (~> 3.104)
+  rubocop (~> 1.87.0)
   rubocop-performance (~> 1.26.1)
-  solargraph (~> 0.58.3)
+  solargraph (~> 0.59.2)
 
 BUNDLED WITH
    2.7.2
