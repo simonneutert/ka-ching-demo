@@ -12,7 +12,7 @@ updates:
         update-types: ["patch", "minor"]
     schedule:
       interval: "monthly"
-      day: "wednesday"
+      day: "friday"
       time: "19:45"
       timezone: "Europe/Berlin"
     assignees:
